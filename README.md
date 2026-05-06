@@ -4,6 +4,8 @@ A modern, full-featured authentication app built with **React** and the **FreeAP
 
 ---
 
+**Live Demo:** [https://auth-app-chaicode.netlify.app/login](https://auth-app-chaicode.netlify.app/login)
+
 ## ✨ Features
 
 - **User Registration** — Create an account with username, email, and password
