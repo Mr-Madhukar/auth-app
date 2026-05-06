@@ -57,11 +57,15 @@ export default function DashboardPage() {
       <div className="orb orb-3" />
 
       {/* Navbar */}
-      <nav className="relative z-20 border-b border-border backdrop-blur-xl bg-surface/60">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <span className="font-bold text-lg text-text-primary">AuthApp</span>
+      <nav className="w-full relative z-20 border-b border-border backdrop-blur-xl bg-surface/60">
+        <div className="w-full max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center ring-1 ring-white/10">
+              <Sparkles className="w-5 h-5 text-primary" />
+            </div>
+            <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              AuthApp
+            </span>
           </div>
           <button
             onClick={handleLogout}
@@ -84,10 +88,10 @@ export default function DashboardPage() {
       </nav>
 
       {/* Main Content */}
-      <main className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-12 page-enter">
+      <main className="w-full relative z-10 max-w-2xl mx-auto px-6 py-14 page-enter">
         {/* Profile Header */}
-        <div className="glass-card p-8 mb-6">
-          <div className="flex flex-col sm:flex-row items-center gap-6">
+        <div className="glass-card p-8 mb-8">
+          <div className="flex flex-col sm:flex-row items-center gap-8">
             {/* Avatar */}
             <div className="relative shrink-0">
               {avatar ? (
@@ -110,12 +114,12 @@ export default function DashboardPage() {
 
             {/* Name & Role */}
             <div className="text-center sm:text-left">
-              <h1 className="text-2xl font-bold text-text-primary mb-1">
+              <h1 className="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
                 {user.username}
               </h1>
-              <p className="text-text-secondary text-sm mb-3">{user.email}</p>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/15 text-primary-hover">
-                <Shield className="w-3.5 h-3.5" />
+              <p className="text-text-secondary text-base mb-4">{user.email}</p>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-primary-hover shadow-[0_0_15px_rgba(139,92,246,0.15)]">
+                <Shield className="w-4 h-4" />
                 {user.role}
               </span>
             </div>
@@ -124,14 +128,14 @@ export default function DashboardPage() {
 
         {/* Details Card */}
         <div className="glass-card p-8">
-          <h2 className="text-lg font-semibold text-text-primary mb-5">
+          <h2 className="text-lg font-semibold text-text-primary mb-6">
             Account Details
           </h2>
-          <div className="space-y-3">
+          <div className="flex flex-col gap-4">
             <div className="info-row">
               <User className="w-5 h-5 text-primary shrink-0" />
               <div>
-                <p className="text-xs text-text-muted">Username</p>
+                <p className="text-xs text-text-muted mb-0.5">Username</p>
                 <p className="text-sm font-medium text-text-primary">{user.username}</p>
               </div>
             </div>
@@ -139,7 +143,7 @@ export default function DashboardPage() {
             <div className="info-row">
               <Mail className="w-5 h-5 text-accent shrink-0" />
               <div>
-                <p className="text-xs text-text-muted">Email</p>
+                <p className="text-xs text-text-muted mb-0.5">Email</p>
                 <p className="text-sm font-medium text-text-primary">{user.email}</p>
               </div>
             </div>
@@ -147,7 +151,7 @@ export default function DashboardPage() {
             <div className="info-row">
               <Shield className="w-5 h-5 text-success shrink-0" />
               <div>
-                <p className="text-xs text-text-muted">Role</p>
+                <p className="text-xs text-text-muted mb-0.5">Role</p>
                 <p className="text-sm font-medium text-text-primary">{user.role}</p>
               </div>
             </div>
@@ -155,7 +159,7 @@ export default function DashboardPage() {
             <div className="info-row">
               <CheckCircle className="w-5 h-5 text-warning shrink-0" />
               <div>
-                <p className="text-xs text-text-muted">Email Verified</p>
+                <p className="text-xs text-text-muted mb-0.5">Email Verified</p>
                 <p className="text-sm font-medium text-text-primary">
                   {user.isEmailVerified ? 'Yes ✓' : 'No ✗'}
                 </p>
@@ -165,7 +169,7 @@ export default function DashboardPage() {
             <div className="info-row">
               <Calendar className="w-5 h-5 text-primary shrink-0" />
               <div>
-                <p className="text-xs text-text-muted">Joined</p>
+                <p className="text-xs text-text-muted mb-0.5">Joined</p>
                 <p className="text-sm font-medium text-text-primary">{createdAt}</p>
               </div>
             </div>
@@ -173,7 +177,7 @@ export default function DashboardPage() {
             <div className="info-row">
               <Clock className="w-5 h-5 text-accent shrink-0" />
               <div>
-                <p className="text-xs text-text-muted">Last Updated</p>
+                <p className="text-xs text-text-muted mb-0.5">Last Updated</p>
                 <p className="text-sm font-medium text-text-primary">{updatedAt}</p>
               </div>
             </div>
@@ -181,7 +185,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-text-muted text-xs mt-8">
+        <p className="text-center text-text-muted text-xs mt-10">
           Powered by{' '}
           <a
             href="https://freeapi.app"

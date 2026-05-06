@@ -21,7 +21,7 @@ api.interceptors.request.use((config) => {
 /**
  * Register a new user
  */
-export const registerUser = async ({ email, password, username, role = 'ADMIN' }) => {
+export const registerUser = async ({ email, password, username, role = 'USER' }) => {
   const res = await api.post('/register', { email, password, username, role });
   return res.data;
 };

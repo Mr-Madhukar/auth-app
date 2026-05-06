@@ -43,7 +43,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-pattern relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-pattern relative overflow-hidden">
       {/* Floating Orbs */}
       <div className="orb orb-1" />
       <div className="orb orb-2" />
@@ -51,21 +51,23 @@ export default function LoginPage() {
 
       <div className="w-full max-w-md page-enter relative z-10">
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/15 mb-5">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 mb-6 ring-1 ring-white/10 shadow-lg">
             <Sparkles className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl font-bold text-text-primary mb-2">Welcome Back</h1>
-          <p className="text-text-secondary text-sm">
+          <h1 className="text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient-shift_3s_ease_infinite]">
+            Welcome Back
+          </h1>
+          <p className="text-text-secondary text-base">
             Sign in to your account to continue
           </p>
         </div>
 
         {/* Card */}
         <div className="glass-card p-8">
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             {/* Username */}
-            <div className="space-y-2">
+            <div className="form-group">
               <label htmlFor="login-username" className="text-sm font-medium text-text-secondary flex items-center gap-2">
                 <User className="w-4 h-4" />
                 Username
@@ -85,7 +87,7 @@ export default function LoginPage() {
             </div>
 
             {/* Password */}
-            <div className="space-y-2">
+            <div className="form-group">
               <label htmlFor="login-password" className="text-sm font-medium text-text-secondary flex items-center gap-2">
                 <Lock className="w-4 h-4" />
                 Password
@@ -108,7 +110,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="btn-primary mt-2"
+              className="btn-primary mt-1"
             >
               <span>
                 {loading ? (
@@ -127,7 +129,7 @@ export default function LoginPage() {
           </form>
 
           {/* Divider */}
-          <div className="mt-7 pt-6 border-t border-border text-center">
+          <div className="form-divider">
             <p className="text-text-muted text-sm">
               Don&apos;t have an account?{' '}
               <Link

@@ -2,14 +2,13 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../api/auth';
 import toast from 'react-hot-toast';
-import { UserPlus, Mail, Lock, User, Shield, ArrowRight, Sparkles } from 'lucide-react';
+import { UserPlus, Mail, Lock, User, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function RegisterPage() {
   const [form, setForm] = useState({
     username: '',
     email: '',
     password: '',
-    role: 'ADMIN',
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -46,7 +45,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-pattern relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-pattern relative overflow-hidden">
       {/* Floating Orbs */}
       <div className="orb orb-1" />
       <div className="orb orb-2" />
@@ -54,21 +53,23 @@ export default function RegisterPage() {
 
       <div className="w-full max-w-md page-enter relative z-10">
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/15 mb-5">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 mb-6 ring-1 ring-white/10 shadow-lg">
             <Sparkles className="w-8 h-8 text-accent" />
           </div>
-          <h1 className="text-3xl font-bold text-text-primary mb-2">Create Account</h1>
-          <p className="text-text-secondary text-sm">
+          <h1 className="text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-accent via-primary to-accent bg-[length:200%_auto] animate-[gradient-shift_3s_ease_infinite]">
+            Create Account
+          </h1>
+          <p className="text-text-secondary text-base">
             Join us and get started in seconds
           </p>
         </div>
 
         {/* Card */}
         <div className="glass-card p-8">
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             {/* Username */}
-            <div className="space-y-2">
+            <div className="form-group">
               <label htmlFor="reg-username" className="text-sm font-medium text-text-secondary flex items-center gap-2">
                 <User className="w-4 h-4" />
                 Username
@@ -88,7 +89,7 @@ export default function RegisterPage() {
             </div>
 
             {/* Email */}
-            <div className="space-y-2">
+            <div className="form-group">
               <label htmlFor="reg-email" className="text-sm font-medium text-text-secondary flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 Email
@@ -108,7 +109,7 @@ export default function RegisterPage() {
             </div>
 
             {/* Password */}
-            <div className="space-y-2">
+            <div className="form-group">
               <label htmlFor="reg-password" className="text-sm font-medium text-text-secondary flex items-center gap-2">
                 <Lock className="w-4 h-4" />
                 Password
@@ -127,31 +128,11 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* Role */}
-            <div className="space-y-2">
-              <label htmlFor="reg-role" className="text-sm font-medium text-text-secondary flex items-center gap-2">
-                <Shield className="w-4 h-4" />
-                Role
-              </label>
-              <div className="gradient-border rounded-xl">
-                <select
-                  id="reg-role"
-                  name="role"
-                  value={form.role}
-                  onChange={handleChange}
-                  className="input-field cursor-pointer appearance-none"
-                >
-                  <option value="ADMIN">Admin</option>
-                  <option value="USER">User</option>
-                </select>
-              </div>
-            </div>
-
             {/* Submit */}
             <button
               type="submit"
               disabled={loading}
-              className="btn-primary mt-2"
+              className="btn-primary mt-1"
             >
               <span>
                 {loading ? (
@@ -170,7 +151,7 @@ export default function RegisterPage() {
           </form>
 
           {/* Divider */}
-          <div className="mt-7 pt-6 border-t border-border text-center">
+          <div className="form-divider">
             <p className="text-text-muted text-sm">
               Already have an account?{' '}
               <Link
